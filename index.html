@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Curso de Formação para Terapeuta Modelo VIP</title>
+  <meta name="description" content="Curso de Formação para Terapeuta Modelo VIP — baseado na Teoria da Emoção Construída e nos pilares Vínculo, Imagem e Palavra.">
+  <meta name="theme-color" content="#0d6efd">
+
+  <style>
+    /* Reset básico e variáveis */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      line-height: 1.6;
+      color: #2b2b2b;
+      background-color: #f8f9fa;
+    }
+
+    :root{
+      --primary: #0d6efd;
+      --primary-700: #0b5ed7;
+      --primary-50:#e7f1ff;
+      --text:#2b2b2b;
+      --muted:#6c757d;
+      --bg:#f8f9fa;
+      --white:#ffffff;
+      --shadow: 0 8px 24px rgba(0,0,0,.08);
+      --radius: 12px;
+      --radius-sm: 8px;
+      --container: 1100px;
+    }
+
+    /* Utilitários */
+    .container{
+      width: min(100% - 32px, var(--container));
+      margin-inline: auto;
+    }
+    .btn{
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all .2s ease;
+      border: 2px solid transparent;
+    }
+    .btn-primary{
+      background: var(--primary);
+      color: var(--white);
+    }
+    .btn-primary:hover{ background: var(--primary-700); transform: translateY(-1px); }
+    .btn-outline{
+      background: transparent;
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .btn-outline:hover{ background: var(--primary-50); }
+
+    /* Acessibilidade */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: #000;
+      color: #fff;
+      padding: 8px 12px;
+      z-index: 9999;
+    }
+    .skip-link:focus { left: 12px; top: 12px; border-radius: 6px; }
+
+    /* Cabeçalho */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    .nav{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+    .brand{
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: .3px;
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+    .brand small{ color: var(--muted); font-weight: 500; font-size: .85rem; }
+    nav ul{
+      list-style: none;
+      display: flex;
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav a{
+      color: var(--text);
+      text-decoration: none;
+      padding: 8px 10px;
+      border-radius: 8px;
+      transition: background .2s ease, color .2s ease;
+      font-weight: 500;
+    }
+    nav a:hover{ background: #eef4ff; color: var(--primary); }
+
+    /* Hero */
+    .hero{
+      background: radial-gradient(1200px 600px at 10% 0%, #eef4ff 0%, #ffffff 40%),
+                  radial-gradient(800px 400px at 100% 0%, #f0f9ff 0%, #ffffff 55%);
+      padding: 48px 0 36px;
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    .hero-grid{
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .badge{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      border: 1px solid #e8eefc;
+      color: #224387;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: .85rem;
+      box-shadow: var(--shadow);
+    }
+    .hero h1{
+      margin-top: 14px;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      line-height: 1.2;
+      color: #0f172a;
+    }
+    .hero p{
+      margin: 14px 0 22px;
+      color: #334155;
+      font-size: 1rem;
+    }
+    .hero-cta{ display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .card{
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,.06);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .mini-stats{
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .stat{
+      background: #f8fbff;
+      border: 1px solid #e8eefc;
+      border-radius: 10px;
+      padding: 12px;
+    }
+    .stat b{ font-size: 1.1rem; color: #0b3d91; }
+    .stat span{ display:block; color: #475569; font-size: .9rem; margin-top: 4px; }
+
+    /* Seções */
+    section{ padding: 40px 0; }
+    .section-title{
+      font-size: 1.6rem;
+      margin-bottom: 18px;
+      color: #0f172a;
+    }
+    .muted{ color: var(--muted); }
+
+    /* Grid de módulos */
+    .grid{
+      display: grid;
+      gap: 16px;
+    }
+    .grid-3{ grid-template-columns: repeat(3, 1fr); }
+    .grid-2{ grid-template-columns: repeat(2, 1fr); }
+    .grid-4{ grid-template-columns: repeat(4, 1fr); }
+
+    .module{
+      border: 1px solid #e8eefc;
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 16px;
+      transition: transform .15s ease;
+    }
+    .module:hover{ transform: translateY(-2px); }
+    .module h3{
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      color: #0b3d91;
+    }
+    .module ul{ margin: 0; padding-left: 18px; color: #334155; }
+
+    /* Depoimentos */
+    .quote{
+      background: #ffffff;
+      border: 1px solid #e8eefc;
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      color: #0f172a;
+    }
+    .quote p{ margin: 0; }
+    .quote small{ color: #475569; display: block; margin-top: 8px; }
+
+    /* Preço / CTA */
+    .pricing{
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .price-box{
+      border: 2px solid #e8eefc;
+      background: #ffffff;
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .price{
+      font-size: 2rem;
+      font-weight: 800;
+      color: #0b3d91;
+    }
+    .old-price{
+      color: #64748b;
+      text-decoration: line-through;
+      margin-left: 8px;
+      font-weight: 600;
+    }
+    .bullet{
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: #334155;
+    }
+    .bullet + .bullet{ margin-top: 10px; }
+
+    /* FAQ */
+    details{
+      border: 1px solid #e8eefc;
+      background: #fff;
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    details + details{ margin-top: 10px; }
+    summary{
+      cursor: pointer;
+      font-weight: 700;
+      color: #0b3d91;
+      list-style: none;
+    }
+    summary::-webkit-details-marker{ display: none; }
+    details p{ margin: 10px 0 0; color: #334155; }
+
+    /* Rodapé */
+    .footer{
+      background: #0b1220;
+      color: #cbd5e1;
+      padding: 28px 0;
+      margin-top: 20px;
+    }
+    .footer p{ margin: 0; }
+    .footer small{ color: #94a3b8; }
+
+    /* Responsividade */
+    @media (max-width: 960px){
+      .hero-grid, .pricing{ grid-template-columns: 1fr; }
+      .grid-4{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px){
+      nav ul{ display: none; } /* simplificação mobile: esconder menu horizontal */
+      .grid-3, .grid-2, .grid-4{ grid-template-columns: 1fr; }
+      .mini-stats{ grid-template-columns: 1fr; }
+      .hero{ padding: 36px 0 24px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container nav" role="navigation" aria-label="Principal">
+      <a href="#topo" class="brand">Terapeuta Modelo VIP <small>Formação</small></a>
+      <nav aria-label="Navegação">
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#modulos">Módulos</a></li>
+          <li><a href="#beneficios">Benefícios</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a class="btn btn-primary" href="#inscricao">Inscreva-se</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="conteudo">
+    <section class="hero" id="topo">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge" aria-label="Destaque do curso">Novo | Turma 2024</span>
+          <h1>Curso de Formação para Terapeuta Modelo VIP</h1>
+          <p>Formação completa baseada na Teoria da Emoção Construída e nos pilares Vínculo, Imagem e Palavra, para você atuar com segurança, ética e resultados consistentes.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#inscricao">Quero me inscrever</a>
+            <a class="btn btn-outline" href="#modulos">Ver conteúdo programático</a>
+          </div>
+          <div class="mini-stats">
+            <div class="stat"><b>80h</b><span>Carga horária total</span></div>
+            <div class="stat"><b>100%</b><span>Online e ao vivo</span></div>
+            <div class="stat"><b>Certificado</b><span>Reconhecimento de conclusão</span></div>
+            <div class="stat"><b>Suporte</b><span>Mentorias em grupo</span></div>
+          </div>
+        </div>
+        <aside>
+          <div class="card" aria-label="Resumo do que você vai aprender">
+            <h2 style="margin: 0 0 8px; font-size:1.2rem; color:#0b3d91;">O que você vai dominar</h2>
+            <ul style="margin:0; padding-left: 18px; color:#334155;">
+              <li>Fundamentos da Teoria da Emoção Construída</li>
+              <li>Aplicação prática dos pilares Vínculo, Imagem e Palavra</li>
+              <li>Protocolos de atendimento e ética clínica</li>
+              <li>Planejamento de sessões e mensuração de resultados</li>
+              <li>Desenvolvimento de carreira e posicionamento profissional</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre">
+      <div class="container">
+        <h2 class="section-title">Sobre a Formação</h2>
+        <p class="muted">Esta formação foi cuidadosamente desenhada para terapeutas que desejam aprofundar sua prática a partir de uma base teórica sólida e, ao mesmo tempo, dominar recursos técnicos contemporâneos que favorecem a construção de vínculo, a leitura de imagens internas e a potência da palavra como ferramenta de transformação.</p>
+      </div>
+    </section>
+
+    <!-- Módulos -->
+    <section id="modulos">
+      <div class="container">
+        <h2 class="section-title">Conteúdo Programático</h2>
+        <div class="grid grid-3">
+          <article class="module">
+            <h3>Módulo 1 — Fundamentos</h3>
+            <ul>
+              <li>Introdução à Teoria da Emoção Construída</li>
+              <li>Neurociência aplicada ao setting terapêutico</li>
+              <li>Papel do terapeuta e enquadre ético</li>
+            </ul>
+          </article>
+          <article class="module">
+            <h3>Módulo 2 — Vínculo</h3>
+            <ul>
+              <li>Regulação emocional e segurança</li>
+              <li>Técnicas de escuta e presença</li>
+              <li>Construção de alianças terapêuticas</li>
+            </ul>
+          </article>
+          <article class="module">
+            <h3>Módulo 3 — Imagem</h3>
+            <ul>
+              <li>Mapeamento de imagens internas</li>
+              <li>Intervenções somático-imagéticas</li>
+              <li>Ferramentas visuais e simbólicas</li>
+            </ul>
+          </article>
+          <article class="module">
+            <h3>Módulo 4 — Palavra</h3>
+            <ul>
+              <li>Reformulação narrativa</li>
+              <li>Questionamento socrático e linguagem precisa</li>
+              <li>Metáforas terapêuticas</li>
+            </ul>
+          </article>
+          <article class="module">
+            <h3>Módulo 5 — Prática Clínica</h3>
+            <ul>
+              <li>Protocolos de sessão</li>
+              <li>Estudos de caso supervisionados</li>
+              <li>Mensuração de progresso</li>
+            </ul>
+          </article>
+          <article class="module">
+            <h3>Módulo 6 — Carreira</h3>
+            <ul>
+              <li>Posicionamento e ética digital</li>
+              <li>Portfólio e prontuário</li>
+              <li>Continuidade e educação permanente</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section id="beneficios">
+      <div class="container">
+        <h2 class="section-title">Benefícios e Diferenciais</h2>
+        <div class="grid grid-3">
+          <div class="module">
+            <h3>Metodologia Atual</h3>
+            <p class="muted">Integra teoria e prática com foco em resultados e ética clínica.</p>
+          </div>
+          <div class="module">
+            <h3>Suporte Real</h3>
+            <p class="muted">Mentorias em grupo e materiais complementares para consolidar o aprendizado.</p>
+          </div>
+          <div class="module">
+            <h3>Aplicabilidade</h3>
+            <p class="muted">Ferramentas que você usa desde a primeira sessão, com estrutura e clareza.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos">
+      <div class="container">
+        <h2 class="section-title">O que dizem os alunos</h2>
+        <div class="grid grid-3">
+          <blockquote class="quote">
+            <p>“A formação me deu segurança e um método claro. Os pilares fizeram toda a diferença no meu dia a dia clínico.”</p>
+            <small>— Aline S.</small>
+          </blockquote>
+          <blockquote class="quote">
+            <p>“Conteúdo denso, prático e humano. As supervisões foram essenciais para consolidar o aprendizado.”</p>
+            <small>— Pedro M.</small>
+          </blockquote>
+          <blockquote class="quote">
+            <p>“Melhorei minha escuta, minha comunicação e a qualidade do vínculo com meus clientes.”</p>
+            <small>— Camila R.</small>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preço / Inscrição -->
+    <section id="inscricao" aria-labelledby="titulo-inscricao">
+      <div class="container pricing">
+        <div class="price-box">
+          <h2 id="titulo-inscricao" class="section-title" style="margin-bottom: 8px;">Inscreva-se</h2>
+          <p class="muted" style="margin-top:0">Garanta sua vaga na próxima turma.</p>
+          <p style="margin: 10px 0 16px;">
+            <span class="price">R$ 1.997</span>
+            <span class="old-price">R$ 2.497</span>
+          </p>
+          <div class="bullet"><span aria-hidden="true">✅</span> Acesso às aulas ao vivo e gravações</div>
+          <div class="bullet"><span aria-hidden="true">✅</span> Mentorias em grupo</div>
+          <div class="bullet"><span aria-hidden="true">✅</span> Materiais e modelos de sessão</div>
+          <div class="bullet"><span aria-hidden="true">✅</span> Certificado de conclusão</div>
+          <div style="margin-top: 16px;">
+            <a class="btn btn-primary" href="#topo">Quero começar agora</a>
+            <a class="btn btn-outline" href="#faq">Tirar dúvidas</a>
+          </div>
+        </div>
+        <aside class="card">
+          <h3 style="margin:0 0 10px; color:#0b3d91;">Como funciona</h3>
+          <ul style="margin:0; padding-left:18px; color:#334155;">
+            <li>Encontros semanais ao vivo</li>
+            <li>Plataforma com materiais e comunidade</li>
+            <li>Atividades práticas e estudos de caso</li>
+            <li>Suporte para dúvidas durante a semana</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <h2 id="faq-title" class="section-title">Perguntas Frequentes</h2>
+
+        <details>
+          <summary>As aulas ficam gravadas?</summary>
+          <p>Sim. Todas as aulas ao vivo ficam gravadas e disponíveis para você assistir quando quiser durante o período de acesso.</p>
+        </details>
+
+        <details>
+          <summary>Preciso ter formação prévia?</summary>
+          <p>Não é obrigatório, mas é recomendado ter interesse e/ou atuação na área de desenvolvimento humano, psicologia, terapia ou coaching.</p>
+        </details>
+
+        <details>
+          <summary>Existe certificado?</summary>
+          <p>Sim, ao concluir a carga horária e os requisitos mínimos, você recebe um certificado de conclusão.</p>
+        </details>
+
+        <details>
+          <summary>Qual é a política de reembolso?</summary>
+          <p>Oferecemos período de garantia conforme legislação aplicável ao comércio eletrônico. Em caso de dúvidas, entre em contato com o suporte.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; 2024 Curso de Formação para Terapeuta Modelo VIP. Todos os direitos reservados.</p>
+      <p style="margin-top: 6px;">
+        <small>Desenvolvido com base na Teoria da Emoção Construída e nos pilares Vínculo, Imagem e Palavra.</small>
+      </p>
+      <p style="margin-top: 10px;">
+        <a class="btn btn-outline" href="#topo" style="border-color:#334155; color:#cbd5e1;">Voltar ao topo</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
