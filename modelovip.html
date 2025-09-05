@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Formação para Terapeuta Modelo VIP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('capa_pagina_vendas_modelo_vip.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .vip-pillars {
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 60px 0;
+            background: white;
+            margin: 40px 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .benefit-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .benefit-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .benefit-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .instructor-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            margin: 40px 0;
+            border-radius: 15px;
+        }
+
+        .instructor-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .instructor-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            margin: 0 auto;
+        }
+
+        .instructor-details h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .instructor-credentials {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .instructor-credentials li {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .instructor-credentials li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .pricing-section {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin: 40px 0;
+            border-radius: 15px;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .pricing-card {
+            background: white;
+            color: #333;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.05);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #27ae60;
+            margin: 20px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(39, 174, 96, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(39, 174, 96, 0.4);
+        }
+
+        .bonus-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 60px 0;
+            margin: 40px 0;
+            border-radius: 15px;
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .bonus-item {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .bonus-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .instructor-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .section {
+                margin: 20px 0;
+                padding: 40px 0;
+            }
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .urgency {
+            background: #e74c3c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 30px 0;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Curso de Formação para<br>Terapeuta Modelo VIP</h1>
+            <p class="hero-subtitle">Transforme Sua Prática Clínica com a Abordagem Mais Inovadora da Psicoterapia</p>
+            <div class="vip-pillars">VÍNCULO • IMAGEM • PALAVRA</div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">Para Profissionais Visionários</h2>
+            <p class="intro-text">
+                Você é um profissional de saúde mental buscando ir além das abordagens tradicionais e oferecer resultados terapêuticos verdadeiramente transformadores?
+            </p>
+            <p style="text-align: center; font-size: 1.1rem; color: #666; max-width: 800px; margin: 0 auto;">
+                No cenário atual da psicoterapia, a fragmentação e a busca por modelos eficazes são desafios constantes. Muitos profissionais se sentem limitados pelas abordagens singulares, que nem sempre conseguem abranger a complexidade da experiência humana. A necessidade de uma síntese que integre os avanços da neurociência e da psicologia moderna é mais urgente do que nunca.
+            </p>
+            <p style="text-align: center; font-size: 1.1rem; color: #666; max-width: 800px; margin: 30px auto 0;">
+                É nesse contexto que surge o <span class="highlight">Modelo VIP - Vínculo, Imagem e Palavra</span>, uma abordagem revolucionária que oferece uma nova síntese em psicoterapia. Desenvolvido pelo renomado Psicólogo Carlos Sérgio Honorato de Oliveira, autor do livro "Modelo VIP - Uma nova síntese em psicoterapia", este curso é a sua oportunidade de dominar uma metodologia única, baseada na Teoria da Emoção Construída, para alcançar resultados terapêuticos superiores.
+            </p>
+        </section>
+
+        <!-- Target Audience -->
+        <section class="section">
+            <h2 class="section-title">Para Quem é Este Curso?</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #555; max-width: 700px; margin: 0 auto 40px;">
+                Este curso foi cuidadosamente desenvolvido para <strong>profissionais de saúde mental</strong> que desejam aprofundar seus conhecimentos e expandir suas ferramentas clínicas.
+            </p>
+            <div style="background: #f8f9fa; padding: 40px; border-radius: 15px; text-align: center;">
+                <p style="font-size: 1.1rem; color: #666; margin-bottom: 20px;">
+                    Se você é psicólogo, psiquiatra, terapeuta ou estudante avançado na área, e busca uma abordagem integrativa e cientificamente fundamentada para otimizar seus resultados terapêuticos, este curso é para você.
+                </p>
+                <p style="font-size: 1.1rem; color: #666;">
+                    Você aprenderá a aplicar o Modelo VIP de forma prática e eficaz no setting terapêutico, capacitando-se para lidar com a complexidade das emoções humanas e promover mudanças duradouras em seus pacientes.
+                </p>
+            </div>
+        </section>
+
+        <!-- Learning Outcomes -->
+        <section class="section">
+            <h2 class="section-title">O Que Você Vai Aprender?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3 class="benefit-title">🎯 Dominar o Modelo VIP</h3>
+                    <p class="benefit-description">Compreender profundamente os pilares Vínculo, Imagem e Palavra, e como eles se integram para uma nova síntese em psicoterapia.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3 class="benefit-title">🧠 Aplicar a Teoria da Emoção Construída</h3>
+                    <p class="benefit-description">Entender os fundamentos neurocientíficos que sustentam o Modelo VIP e como as emoções são construídas e podem ser reconstruídas.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3 class="benefit-title">🤝 Otimizar o Vínculo Terapêutico</h3>
+                    <p class="benefit-description">Desenvolver habilidades para co-regulação e reparentalização no contexto clínico, criando uma base segura para a mudança.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3 class="benefit-title">🎨 Utilizar o Poder da Imagem</h3>
+                    <p class="benefit-description">Aprender técnicas de reconsolidação da memória e simulação mental para reestruturar experiências passadas e projetar futuros desejados.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3 class="benefit-title">💬 Refinar a Palavra como Ferramenta</h3>
+                    <p class="benefit-description">Aprimorar a granularidade emocional e a construção narrativa, capacitando pacientes a redefinir suas histórias e significados.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3 class="benefit-title">🚀 Alcançar Melhores Resultados</h3>
+                    <p class="benefit-description">Proporcionar intervenções mais eficazes e duradouras, promovendo uma transformação profunda na vida de seus pacientes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Structure -->
+        <section class="section">
+            <h2 class="section-title">Estrutura do Curso</h2>
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; border-radius: 15px; text-align: center;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin: 20px 0;">
+                    <div>
+                        <h3 style="font-size: 2.5rem; margin-bottom: 10px;">12</h3>
+                        <p>Meses de Duração</p>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 2.5rem; margin-bottom: 10px;">12</h3>
+                        <p>Módulos Completos</p>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 2.5rem; margin-bottom: 10px;">20h</h3>
+                        <p>Por Módulo</p>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 2.5rem; margin-bottom: 10px;">Quinzenal</h3>
+                        <p>Encontros Online</p>
+                    </div>
+                </div>
+                <p style="margin-top: 30px; font-size: 1.1rem;">
+                    Cada módulo aprofundará um aspecto fundamental do Modelo VIP, combinando teoria, prática e discussão de casos clínicos para garantir uma aprendizagem completa e aplicável.
+                </p>
+            </div>
+        </section>
+
+        <!-- Unique Features -->
+        <section class="section">
+            <h2 class="section-title">O Que Torna o Modelo VIP Único?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3 class="benefit-title">🔬 Modelo Terapêutico Único</h3>
+                    <p class="benefit-description">Diferente de abordagens ecléticas, o Modelo VIP oferece uma síntese inovadora e coerente, integrando os mais recentes avanços da neurociência e da psicologia.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3 class="benefit-title">🧬 Baseado na Teoria da Emoção Construída</h3>
+                    <p class="benefit-description">Esta fundamentação científica sólida proporciona uma compreensão profunda de como as emoções são criadas e, mais importante, como podem ser modificadas.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3 class="benefit-title">🎯 Foco na Transformação Profunda</h3>
+                    <p class="benefit-description">O curso vai além da gestão de sintomas, capacitando o terapeuta a facilitar mudanças estruturais e duradouras na experiência emocional.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3 class="benefit-title">⚡ Abordagem Integrativa e Prática</h3>
+                    <p class="benefit-description">Você aprenderá a teoria e, imediatamente, como aplicá-la em sua prática clínica, com protocolos e técnicas validadas.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Instructor Section -->
+    <section class="instructor-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 50px;">Conheça Seu Mentor</h2>
+            <div class="instructor-content">
+                <div class="instructor-image">
+                    👨‍⚕️
+                </div>
+                <div class="instructor-details">
+                    <h3>Carlos Sérgio Honorato de Oliveira</h3>
+                    <p style="font-size: 1.2rem; margin-bottom: 30px;">
+                        Este curso é ministrado pelo próprio criador do Modelo VIP, com uma vasta experiência e um currículo impressionante.
+                    </p>
+                    <ul class="instructor-credentials">
+                        <li><strong>Criador do Modelo VIP:</strong> A mente por trás desta abordagem inovadora que está redefinindo a psicoterapia.</li>
+                        <li><strong>Autor Reconhecido:</strong> Autor do livro "Modelo VIP - Uma nova síntese em psicoterapia".</li>
+                        <li><strong>Formação Sólida:</strong> Psicólogo e psicanalista, pós-graduado em Terapia do Esquema e Master em Hipnose Clínica.</li>
+                        <li><strong>Experiência Comprovada:</strong> Mais de 7.000 sessões de psicoterapia realizadas.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Investimento e Formas de Pagamento</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 40px;">
+                Invista em sua carreira e torne-se um terapeuta Modelo VIP, capacitado para oferecer o que há de mais avançado em psicoterapia.
+            </p>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 20px;">Pagamento à Vista</h3>
+                    <div class="price">R$ 2.997,00</div>
+                    <p style="color: #27ae60; font-weight: 600;">Melhor Oferta!</p>
+                    <p style="margin-top: 20px;">PIX ou Cartão de Crédito</p>
+                </div>
+                <div class="pricing-card">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 20px;">Parcelado</h3>
+                    <div class="price">12x R$ 320,00</div>
+                    <p style="color: #666;">Sem Juros</p>
+                    <p style="margin-top: 20px;">Cartão de Crédito</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonus Section -->
+    <section class="bonus-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 30px;">Bônus Exclusivos para Alunos VIP</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px;">
+                Ao se inscrever, você terá acesso a um pacote de bônus que complementarão ainda mais sua jornada de aprendizado:
+            </p>
+            <div class="bonus-grid">
+                <div class="bonus-item">
+                    <div class="bonus-icon">📚</div>
+                    <h3 style="margin-bottom: 15px;">Apostilas Completas</h3>
+                    <p>Material didático detalhado para cada módulo, facilitando o acompanhamento das aulas e a revisão do conteúdo.</p>
+                </div>
+                <div class="bonus-item">
+                    <div class="bonus-icon">📖</div>
+                    <h3 style="margin-bottom: 15px;">E-Books Exclusivos</h3>
+                    <p>Uma biblioteca de e-books com temas relevantes para aprofundar seus conhecimentos e expandir sua atuação.</p>
+                </div>
+                <div class="bonus-item">
+                    <div class="bonus-icon">👥</div>
+                    <h3 style="margin-bottom: 15px;">Comunidade VIP Exclusiva</h3>
+                    <p>Faça parte de um grupo seleto de profissionais para trocar experiências, tirar dúvidas e discutir casos clínicos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <div class="container">
+        <section class="section" style="text-align: center;">
+            <h2 class="section-title">Pronto para Transformar Sua Prática?</h2>
+            <p style="font-size: 1.2rem; color: #555; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Não perca a oportunidade de se tornar um Terapeuta Modelo VIP e revolucionar a forma como você aborda a psicoterapia. Este é o momento de investir em seu desenvolvimento profissional e oferecer o que há de mais inovador e eficaz para seus pacientes.
+            </p>
+            
+            <div class="urgency">
+                <strong>🚨 AS VAGAS SÃO LIMITADAS! 🚨</strong><br>
+                Garanta já a sua e faça parte da próxima turma de profissionais de saúde mental que estão elevando o nível da prática clínica no Brasil.
+            </div>
+
+            <a href="#inscricao" class="cta-button">QUERO ME INSCREVER AGORA!</a>
+            
+            <p style="margin-top: 30px; color: #666;">
+                O processo de inscrição é simples e rápido. Basta acessar nosso site oficial e seguir as instruções para garantir sua vaga.
+            </p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Curso de Formação para Terapeuta Modelo VIP. Todos os direitos reservados.</p>
+            <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">
+                Desenvolvido com base na Teoria da Emoção Construída e nos pilares Vínculo, Imagem e Palavra.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
